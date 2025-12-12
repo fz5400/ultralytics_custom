@@ -1,5 +1,9 @@
 # Ultralytics 🚀 AGPL-3.0 License - https://ultralytics.com/license
 
+# 添加自定义模块
+from .AddModules import *
+
+# 原始代码
 import contextlib
 import pickle
 import re
@@ -1553,6 +1557,11 @@ def parse_model(d, ch, verbose=True):
             SCDown,
             C2fCIB,
             A2C2f,
+
+            # 自定义模块
+            SimAM,
+            C2f_SimAM,
+            C3k2_SimAM,
         }
     )
     repeat_modules = frozenset(  # modules with 'repeat' arguments
@@ -1572,6 +1581,11 @@ def parse_model(d, ch, verbose=True):
             C2fCIB,
             C2PSA,
             A2C2f,
+
+            # 自定义模块
+            SimAM,
+            C2f_SimAM,
+            C3k2_SimAM,
         }
     )
     for i, (f, n, m, args) in enumerate(d["backbone"] + d["head"]):  # from, number, module, args
